@@ -21,20 +21,20 @@
 
     <EditText
         android:id="@+id/EditText"
-        android:layout_width="224dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:hint="Type something"
         android:inputType="textPersonName"
-        android:text="Sample Text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="128dp"
+        android:layout_height="47dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="Button"
@@ -42,8 +42,6 @@
         android:textColorHint="#989898"
         app:backgroundTint="@color/purple_500"
         app:iconTint="#919191"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.214"
         app:layout_constraintStart_toEndOf="@+id/EditText"
         app:layout_constraintTop_toTopOf="parent"
         app:rippleColor="#606060" />
