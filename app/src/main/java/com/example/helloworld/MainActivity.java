@@ -38,13 +38,20 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener ourListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TimesClicked = TimesClicked+1;
-                String result = "\n The button got tapped "+ TimesClicked;
-                textView.append(result);
+                ButtonOnClick();
             }
         };
+        button.setOnClickListener(ourListener);
+
 
 
 
     }
+    private void ButtonOnClick(){
+        TimesClicked = TimesClicked+1;
+        textView.setText("\n The button got tapped "+ TimesClicked);
+
+
+    }
+
 }
