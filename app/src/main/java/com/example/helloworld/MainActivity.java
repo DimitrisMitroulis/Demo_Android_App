@@ -1,6 +1,7 @@
 package com.example.helloworld;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText userInput;
     private Button button;
     private TextView textView;
+    private int TimesClicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,21 @@ public class MainActivity extends AppCompatActivity {
         userInput = (EditText) findViewById(R.id.editText);
         button = (Button) findViewById(R.id.winButton);
         textView = (TextView) findViewById(R.id.textView);
+        mainVoid();
 
 
     }
+    private void mainVoid(){
+        View.OnClickListener ourListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TimesClicked = TimesClicked+1;
+                String result = "\n The button got tapped "+ TimesClicked;
+                textView.append(result);
+            }
+        };
 
+
+
+    }
 }
