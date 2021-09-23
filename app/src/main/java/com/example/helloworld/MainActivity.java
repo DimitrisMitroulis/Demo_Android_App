@@ -2,6 +2,8 @@ package com.example.helloworld;
 
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,16 +15,21 @@ public class MainActivity extends AppCompatActivity {
     // to the same anchor point.
     //Tip: constrain all the elements that you want to stick together to the same side(left/right wall)
 
-    public Button OkButton;
+
+    private EditText userInput;
+    private Button button;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.third_layout);
-        mainVoid();
-    }
-    public void mainVoid(){
+
+        userInput = (EditText) findViewById(R.id.editText);
+        button = (Button) findViewById(R.id.winButton);
+        textView = (TextView) findViewById(R.id.textView);
+
 
     }
-    //OkButton.
+
 }
