@@ -50,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
     private void ButtonOnClick(){
         TimesClicked = TimesClicked+1;
         textView.setText("\n The button got tapped "+ TimesClicked);
+        if(TimesClicked==10){// to crash apk
+            //throw new RuntimeException("This is a crash");
+
+        }
 
 
     }
