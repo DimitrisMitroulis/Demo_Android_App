@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     // Each constraint handle can be used to attach only one constraint,but you can create multiple constraints(from diff. widgets)
     // to the same anchor point.
     //Tip: constrain all the elements that you want to stick together to the same side(left/right wall)
+    //Only editable widgets (editText) get their state saved when the phone turns orientation
 
 
     private EditText userInput;
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);// to save the states when changing orientation
         setContentView(R.layout.third_layout);
 
         userInput = findViewById(R.id.editText);
@@ -38,26 +39,28 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    private void mainVoid(){
+
+    private void mainVoid() {
 
         View.OnClickListener winButtonListener = view -> {
 
             if (!String.valueOf(userInput.getText()).equals("")) {
                 TimesClicked += 1;
-                textView.append("\n"+userInput.getText());
+                textView.append("\n" + userInput.getText());
                 //textView.append("\n" + String.valueOf(userInput.getText()));
                 if (TimesClicked == 1)
                     textView.setText(String.valueOf(userInput.getText()));
-            }else{
+
+                userInput.setText(""); //clear text
+            } else {
                 Toast toast = Toast.makeText(getApplicationContext(), "Please write something", Toast.LENGTH_SHORT);
                 toast.show();
 
             }
         };
+
         button.setOnClickListener(winButtonListener);
-
     }
-
 
 
 }
