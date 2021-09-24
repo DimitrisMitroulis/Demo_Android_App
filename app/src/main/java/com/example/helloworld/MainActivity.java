@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText userInput;
     private Button button;
     private TextView textView;
-    private int TimesClicked;
+    private int TimesClicked = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,27 +35,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void mainVoid(){
-        View.OnClickListener ourListener = new View.OnClickListener() {
+        View.OnClickListener winButtonListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ButtonOnClick();
+                TimesClicked+=1;
+                textView.append("\n The button got tapped " + TimesClicked + " times " + userInput.getText());
+                textView.setVerticalScrollBarEnabled(true);
+                //textView.setText("\n The button got tapped "+ TimesClicked+" times "+userInput.getText());
+
+                //Toast.makeText(this , "ARE YOU READY?",Toast.LENGTH_LONG ).show(); // example for Toast
+
+                if(TimesClicked == 10){
+                    //throw new RuntimeException("This is a crash"); // to crash apk
+
+                }
             }
         };
-        button.setOnClickListener(ourListener);
-
-
-
+        button.setOnClickListener(winButtonListener);
 
     }
-    private void ButtonOnClick(){
-        TimesClicked = TimesClicked+1;
-        textView.setText("\n The button got tapped "+ TimesClicked);
-        if(TimesClicked==10){// to crash apk
-            //throw new RuntimeException("This is a crash");
-
-        }
 
 
-    }
 
 }
