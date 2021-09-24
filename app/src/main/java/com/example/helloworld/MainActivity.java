@@ -2,6 +2,7 @@ package com.example.helloworld;
 
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MainActivity";
     //general tips
     //Every view must have at least one horizontal and one vertica constraint.
     //A vertical constraint can be constrained only to another vertical pane.(You can't constrain a left to top)
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG,"onCreate: in");
         super.onCreate(savedInstanceState);// to save the states when changing orientation
         setContentView(R.layout.third_layout);
 
@@ -37,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
         textView.setMovementMethod(new ScrollingMovementMethod());
         mainVoid();
 
+
+    }
+    @Override
+    protected void onStart(){
+        Log.d(TAG, "onStart: in");
+        super.onStart();
+        Log.d(TAG, "onStart: out");
 
     }
 
