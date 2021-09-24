@@ -1,6 +1,7 @@
 package com.example.helloworld;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         userInput = (EditText) findViewById(R.id.editText);
         button = (Button) findViewById(R.id.winButton);
         textView = (TextView) findViewById(R.id.textView);
+        textView.setMovementMethod(new ScrollingMovementMethod());
         mainVoid();
 
 
@@ -39,16 +41,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TimesClicked+=1;
-                textView.append("\n The button got tapped " + TimesClicked + " times " + userInput.getText());
+                textView.append("The button got tapped " + TimesClicked + " times " + userInput.getText()+"\n");
                 textView.setVerticalScrollBarEnabled(true);
                 //textView.setText("\n The button got tapped "+ TimesClicked+" times "+userInput.getText());
 
                 //Toast.makeText(this , "ARE YOU READY?",Toast.LENGTH_LONG ).show(); // example for Toast
 
-                if(TimesClicked == 10){
-                    //throw new RuntimeException("This is a crash"); // to crash apk
-
-                }
+                if(TimesClicked == 1)
+                    textView.setText("\n The button got tapped 1 time " + userInput.getText());
             }
         };
         button.setOnClickListener(winButtonListener);
