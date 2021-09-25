@@ -9,10 +9,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = "MainActivity";
     //general tips
     //Every view must have at least one horizontal and one vertica constraint.
     //A vertical constraint can be constrained only to another vertical pane.(You can't constrain a left to top)
@@ -20,16 +20,77 @@ public class MainActivity extends AppCompatActivity {
     // to the same anchor point.
     //Tip: constrain all the elements that you want to stick together to the same side(left/right wall)
     //Only editable widgets (editText) get their state saved when the phone turns orientation
+    //LAst course: 24
 
 
     private EditText userInput;
     private Button button;
     private TextView textView;
     private int TimesClicked = 0;
+    private static final String TAG = "MainActivity";
 
     @Override
+    protected void onStart() {
+        Log.d(TAG, "onStart: in");
+        super.onStart();
+        Log.d(TAG, "onStart: out");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        Log.d(TAG, "onStart: in");
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.d(TAG, "onStart: out");
+    }
+
+    @Override
+    protected void onRestart() {
+        Log.d(TAG, "onStart: in");
+        super.onRestart();
+        Log.d(TAG, "onStart: out");
+    }
+
+    @Override
+    protected void onResume() {
+        Log.d(TAG, "onStart: in");
+        super.onResume();
+        Log.d(TAG, "onStart: out");
+    }
+
+    @Override
+    protected void onPause() {
+        Log.d(TAG, "onStart: in");
+        super.onPause();
+        Log.d(TAG, "onStart: out");
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        Log.d(TAG, "onStart: in");
+        super.onSaveInstanceState(outState);
+        Log.d(TAG, "onStart: out");
+    }
+
+    @Override
+    protected void onStop() {
+        Log.d(TAG, "onStart: in");
+        super.onStop();
+        Log.d(TAG, "onStart: out");
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d(TAG, "onStart: in");
+        super.onDestroy();
+        Log.d(TAG, "onStart: out");
+    }
+
+
+
+    @Override//On create method is called when the app is started,bundle is null so nothing needs to be restored
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d(TAG,"onCreate: in");
+        Log.d(TAG, "onCreate: in");
+        
         super.onCreate(savedInstanceState);// to save the states when changing orientation
         setContentView(R.layout.third_layout);
 
@@ -39,16 +100,12 @@ public class MainActivity extends AppCompatActivity {
 
         textView.setMovementMethod(new ScrollingMovementMethod());
         mainVoid();
+        Log.d(TAG, "onCreate: out");
 
 
-    }
-    @Override
-    protected void onStart(){
-        Log.d(TAG, "onStart: in");
-        super.onStart();
-        Log.d(TAG, "onStart: out");
 
     }
+
 
     private void mainVoid() {
 
@@ -70,6 +127,7 @@ public class MainActivity extends AppCompatActivity {
         };
 
         button.setOnClickListener(winButtonListener);
+        
     }
 
 
