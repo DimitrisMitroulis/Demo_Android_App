@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
     private TextView textView;
     private int TimesClicked = 0;
-    private static final String TAG = "MainActivity";
+    private final String SavedTimesCLicked = "";
+    private final String TAG = "MainActivity";
     private final String TEXT_CONTENTS = "";
 
     @Override
@@ -42,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "onRestore: in");
         super.onRestoreInstanceState(savedInstanceState);
         //String savedString = savedInstanceState.getString(TEXT_CONTENTS);//extraction of data must be happening after super
-        textView.setText(savedInstanceState.getString(TEXT_CONTENTS));
+        textView.append(savedInstanceState.getString(TEXT_CONTENTS));
         Log.d(TAG, "onRestore: out");
     }
 
@@ -117,11 +118,14 @@ public class MainActivity extends AppCompatActivity {
 
             if (!String.valueOf(userInput.getText()).equals("")) {
                 TimesClicked += 1;
-                textView.append("\n" + userInput.getText());
+                Log.d(TAG, String.valueOf(TimesClicked));
 
                 //textView.append("\n" + String.valueOf(userInput.getText()));
-                if (TimesClicked == 1)
-                    textView.setText(String.valueOf(userInput.getText()));
+                if (TimesClicked == 1 ) {
+                    textView.append(String.valueOf(userInput.getText())+"\n");
+                }else {
+                    textView.append(userInput.getText()+"\n");
+                }
 
                 userInput.setText(""); //clear text
             } else {
